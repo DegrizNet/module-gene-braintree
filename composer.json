@@ -1,7 +1,14 @@
 {
-    "name": "gene/braintree",
+    "name": "degriz/openmage-braintree",
+    "description": "Braintree payments (Gene_Braintree) for OpenMage 20 / PHP 8 - Web SDK 3.147, 3D Secure 2 (Cardinal) ready",
     "type": "magento-module",
+    "keywords": ["openmage", "magento1", "braintree", "3d-secure", "payment"],
+    "homepage": "https://github.com/DegrizNet/module-gene-braintree",
     "require": {
+        "php": ">=8.1",
         "braintree/braintree_php": "^6"
+    },
+    "replace": {
+        "gene/braintree": "self.version"
     }
 }

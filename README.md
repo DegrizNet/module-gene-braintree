@@ -17,15 +17,16 @@ This fork runs in production on a multi-store OpenMage 20.18 / PHP 8.4 shop.
 
 ## Installation
 
-The package is not on Packagist, so add this repository as a `vcs` source in your shop's `composer.json`:
+```sh
+composer require degriz/openmage-braintree
+```
+
+The package `replace`s `gene/braintree`, so it takes over from the old package. Your `composer.json` needs the Magento installer:
 
 ```json
 {
-  "repositories": [
-    { "type": "vcs", "url": "https://github.com/DegrizNet/module-gene-braintree.git" }
-  ],
   "require": {
-    "gene/braintree": "dev-master",
+    "degriz/openmage-braintree": "^3.2",
     "magento-hackathon/magento-composer-installer": "^4.0"
   },
   "extra": {
@@ -41,13 +42,7 @@ The package is not on Packagist, so add this repository as a `vcs` source in you
 }
 ```
 
-Then:
-
-```sh
-composer update gene/braintree --no-dev
-```
-
-**Switching from justinbeaty's repository:** change the `url` in `repositories`, then run the command above. Any `magento-deploy-ignore` entries you kept for local PHP 8 patches of this module can be removed, because those fixes are included here.
+**Switching from `gene/braintree` (justinbeaty's repository):** remove `gene/braintree` from `require` and its `vcs` entry from `repositories`, then run `composer require degriz/openmage-braintree --no-dev`. Any `magento-deploy-ignore` entries you kept for local PHP 8 patches of this module can be removed, because those fixes are included here.
 
 After a `composer update`, check that the files in `vendor/gene/braintree` were actually copied into the Magento root. Flush the Magento cache and OPcache afterwards.
 
