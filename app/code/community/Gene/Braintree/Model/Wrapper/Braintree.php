@@ -289,7 +289,8 @@ class Gene_Braintree_Model_Wrapper_Braintree extends Mage_Core_Model_Abstract
     {
         // If we have the getConfigDataValue use that
         if (method_exists('Mage_Adminhtml_Model_Config_Data', 'getConfigDataValue')) {
-            return Mage::getSingleton('adminhtml/config_data')->getConfigDataValue($path);
+            $value = Mage::getSingleton('adminhtml/config_data')->getConfigDataValue($path);
+            return $value === null ? null : (string) $value; // braintree_php 6.x requires string config values
         }
 
         // Otherwise use the default amazing getStoreConfig

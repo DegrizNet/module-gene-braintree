@@ -12,7 +12,7 @@ class Gene_Braintree_Adminhtml_BraintreeController extends Mage_Adminhtml_Contro
      *
      * @return bool
      */
-    protected function _isAllowed()
+    protected function _isAllowed(): bool
     {
         return Mage::getSingleton('admin/session')->isAllowed('sales/order');
     }

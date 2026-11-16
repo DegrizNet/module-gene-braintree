@@ -7,7 +7,7 @@ class Gene_Braintree_Adminhtml_CheckoutController extends Mage_Adminhtml_Control
      *
      * @return bool
      */
-    protected function _isAllowed()
+    protected function _isAllowed(): bool
     {
         return Mage::getSingleton('admin/session')->isAllowed('sales/order');
     }
